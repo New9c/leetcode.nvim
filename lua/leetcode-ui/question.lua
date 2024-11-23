@@ -216,9 +216,24 @@ function Question:mount()
         return pcall(vim.api.nvim_set_current_tabpage, tabp)
     end
 
-    local q = api_question.by_title_slug(self.cache.title_slug)
-    if not q or q.is_paid_only and not config.auth.is_premium then
-        return log.warn("Question is for premium users only")
+    local q = nil
+    local retries = 3
+    for retry_count = 1, retries do
+        q = api_question.by_title_slug(self.cache.title_slug)
+
+        if not q or q.is_paid_only and not config.auth.is_premium then
+            log.warn("Found question for premium users only. Attempt " .. retry_count)
+        end
+
+        if q and (not q.is_paid_only or config.auth.is_premium) then
+            break
+        end
+        q = nil
+        vim.fn.sleep(1) -- Sleep for 1 second before retrying
+    end
+    if not q then
+        log.warn("Stopped after 3 attempts.")
+        return
     end
     self.q = q
 
