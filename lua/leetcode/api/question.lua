@@ -49,32 +49,38 @@ function question.random(filters)
         return nil, err
     end
 
-    local q = res.data.randomQuestion
+    local q = nil
+    local try = 0
+    local try_limit = 3
 
-    if q == vim.NIL then
-        local msg = "Random question fetch responded with `null`"
+    while not q or not config.auth.is_premium and q.paid_only and try < try_limit do
+        try = try + 1
+        log.info("Attempt " .. try .. ": Fetching random question...")
+        q = res.data.randomQuestion
+        if q == vim.NIL then
+            local msg = "Random question fetch responded with `null`"
 
-        if filters then
-            msg = msg .. ".\n\nMaybe invalid filters?\n" .. vim.inspect(filters)
+            if filters then
+                msg = msg .. ".\n\nMaybe invalid filters?\n" .. vim.inspect(filters)
+            end
+
+            return nil, { msg = msg, lvl = vim.log.levels.ERROR }
         end
 
-        return nil, { msg = msg, lvl = vim.log.levels.ERROR }
+        if config.is_cn then
+            q = {
+                title_slug = q,
+                paid_only = problemlist.get_by_title_slug(q).paid_only,
+            }
+        end
     end
 
-    if config.is_cn then
-        q = {
-            title_slug = q,
-            paid_only = problemlist.get_by_title_slug(q).paid_only,
-        }
-    end
-
-    if not config.auth.is_premium and q.paid_only then
+    if not config.auth.is_premium and q.paid_only and try < try_limit then
         err = err or {}
-        err.msg = "Drawn question is for premium users only. Please try again"
+        err.msg = "Found 3 premium questions in a row"
         err.lvl = vim.log.levels.WARN
         return nil, err
     end
-
     return q
 end
 
