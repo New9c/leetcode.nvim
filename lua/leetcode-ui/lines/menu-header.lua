@@ -16,18 +16,19 @@ local ascii = {
 }
 
 function MenuHeader:init()
-    local stats = config.stats
-    local daily = stats.daily
     MenuHeader.super.init(self, {}, {
         hl = "Keyword",
     })
 
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
+            local stats = config.stats
+            local daily = stats.daily
+            local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
             if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
                 self:append(thing)
             else
-                self:append(thing, "leetcode_menu")
+                self:append(thing, hl)
             end
         end
         self:endl()
