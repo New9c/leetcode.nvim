@@ -19,7 +19,7 @@ function MenuHeader:init()
     local stats = config.stats
     local daily = stats.daily
     MenuHeader.super.init(self, {}, {
-        hl = daily.today_completed and "leetcode_hard" or "Keyword",
+        hl = "Keyword",
     })
 
     for _, line in ipairs(ascii) do
@@ -27,7 +27,7 @@ function MenuHeader:init()
             if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
                 self:append(thing)
             else
-                self:append(thing, "leetcode_hard")
+                self:append(thing, "leetcode_medium")
             end
         end
         self:endl()
