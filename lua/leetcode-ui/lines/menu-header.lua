@@ -1,4 +1,5 @@
 local Lines = require("leetcode-ui.lines")
+local config = require("leetcode.config")
 
 ---@class lc.ui.menu.Header : lc.ui.Lines
 local MenuHeader = Lines:extend("LeetMenuHeader")
@@ -15,8 +16,10 @@ local ascii = {
 }
 
 function MenuHeader:init()
+    local stats = config.stats
+    local daily = stats.daily
     MenuHeader.super.init(self, {}, {
-        hl = "Keyword",
+        hl = daily.today_completed and "leetcode_hard" or "Keyword",
     })
 
     for _, line in ipairs(ascii) do
