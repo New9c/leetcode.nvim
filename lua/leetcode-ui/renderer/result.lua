@@ -48,7 +48,7 @@ function ResultLayout:handle_accepted(item)
     runtime:endl()
 
     runtime:append(
-        ("%s %.2f%% "):format(t("Beats"), item.runtime_percentile),
+        ("%s %.2f%% "):format(t("Kicks"), item.runtime_percentile),
         perc_hi(item.runtime_percentile)
     )
 
@@ -64,7 +64,7 @@ function ResultLayout:handle_accepted(item)
             :append(unpack(lang_text))
             :append(" 的用户", "leetcode_normal")
     else
-        runtime:append("of users with ", "leetcode_normal"):append(unpack(lang_text))
+        runtime:append("of user's asses using ", "leetcode_normal"):append(unpack(lang_text))
     end
 
     local runtime_title = Line():append("󰓅 " .. t("Runtime"))
@@ -80,7 +80,7 @@ function ResultLayout:handle_accepted(item)
     memory:endl()
 
     memory:append(
-        ("%s %.2f%% "):format(t("Beats"), item.memory_percentile),
+        ("%s %.2f%% "):format(t("Kicks"), item.memory_percentile),
         perc_hi(item.memory_percentile)
     )
     if config.translator then
@@ -89,7 +89,7 @@ function ResultLayout:handle_accepted(item)
             :append(unpack(lang_text))
             :append(" 的用户", "leetcode_normal")
     else
-        memory:append("of users with ", "leetcode_normal"):append(unpack(lang_text))
+        memory:append("of user's asses using ", "leetcode_normal"):append(unpack(lang_text))
     end
 
     local memory_title = Line():append("󰍛 " .. t("Memory"))
