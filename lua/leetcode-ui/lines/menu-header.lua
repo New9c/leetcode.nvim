@@ -24,8 +24,8 @@ function MenuHeader:init()
 
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
-            if thing == "󰈸" then
-                self:append("t", "leetcode_hard")
+            if thing == "/" or thing == " " or thing == "\\" then
+                self:append(thing, "leetcode_hard")
             else
                 self:append(thing)
             end
