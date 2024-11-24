@@ -1,5 +1,6 @@
 local Lines = require("leetcode-ui.lines")
 local config = require("leetcode.config")
+local log = require("leetcode.logger")
 
 ---@class lc.ui.menu.Header : lc.ui.Lines
 local MenuHeader = Lines:extend("LeetMenuHeader")
@@ -22,7 +23,7 @@ function MenuHeader:init()
 
     local stats = config.stats
     local daily = stats.daily
-    print("daily.today_completed:", daily.today_completed)
+    log.debug("daily.today_completed value: " .. tostring(daily.today_completed))
     local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
