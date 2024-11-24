@@ -18,7 +18,7 @@ function Header:init(item) --
     self:append(item._.title, item._.hl)
     if item._.submission then
         if item._.success then
-            self:append(" 🎉")
+            self:append("!!! WOOOOO🎉🎉🎉")
         else
             self:append(" | ")
             self:append(testcases_passed(item), "leetcode_alt")
