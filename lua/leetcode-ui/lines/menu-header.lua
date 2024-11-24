@@ -22,6 +22,7 @@ function MenuHeader:init()
 
     local stats = config.stats
     local daily = stats.daily
+    print("daily.today_completed:", daily.today_completed)
     local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
