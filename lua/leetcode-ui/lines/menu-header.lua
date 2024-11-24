@@ -27,7 +27,7 @@ function MenuHeader:init()
             if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
                 self:append(thing)
             else
-                self:append(thing, "leetcode_alt")
+                self:append(thing, "leetcode_menu")
             end
         end
         self:endl()
