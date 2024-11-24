@@ -23,7 +23,7 @@ function MenuHeader:init()
     })
 
     for _, line in ipairs(ascii) do
-        self:append(line):endl()
+        self:append(line, "leetcode_hard"):endl()
     end
 end
 
