@@ -23,7 +23,7 @@ function MenuHeader:init()
     })
 
     for _, line in ipairs(ascii) do
-        for thing in line do
+        for thing in line:gmatch(".") do
             if thing == "󰈸" then
                 self:append(thing, "leetcode_hard")
             else
