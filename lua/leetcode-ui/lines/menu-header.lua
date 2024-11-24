@@ -20,11 +20,11 @@ function MenuHeader:init()
         hl = "Keyword",
     })
 
+    local stats = config.stats
+    local daily = stats.daily
+    local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
-            local stats = config.stats
-            local daily = stats.daily
-            local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
             if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
                 self:append(thing)
             else
