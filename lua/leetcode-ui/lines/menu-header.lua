@@ -24,10 +24,10 @@ function MenuHeader:init()
 
     for _, line in ipairs(ascii) do
         for thing in line:gmatch(".") do
-            if thing == "/" or thing == " " or thing == "\\" then
-                self:append(thing, "leetcode_hard")
-            else
+            if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
                 self:append(thing)
+            else
+                self:append(thing, "leetcode_hard")
             end
         end
         self:endl()
