@@ -12,7 +12,6 @@ function Stats:contents()
 
     local stats = config.stats
     local daily, progress = stats.daily, stats.progress
-    log.info("daily.today_completed value: " .. tostring(daily.today_completed))
 
     local hl = daily.today_completed and "leetcode_hard" or "leetcode_alt"
     self:append("󰈸 ", hl)
