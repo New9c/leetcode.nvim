@@ -17,23 +17,26 @@ local ascii = {
 }
 
 function MenuHeader:init()
+    self:clear()
     MenuHeader.super.init(self, {}, {
         hl = "Keyword",
     })
 
-    local stats = config.stats
-    local daily = stats.daily
-    log.info("daily.today_completed value: " .. tostring(daily.today_completed))
-    local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
-    for _, line in ipairs(ascii) do
-        for thing in line:gmatch(".") do
-            if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
-                self:append(thing)
-            else
-                self:append(thing, hl)
+    if config.auth.is_signed_in then
+        local stats = config.stats
+        local daily = stats.daily
+        log.info("daily.today_completed value: " .. tostring(daily.today_completed))
+        local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
+        for _, line in ipairs(ascii) do
+            for thing in line:gmatch(".") do
+                if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
+                    self:append(thing)
+                else
+                    self:append(thing, hl)
+                end
             end
+            self:endl()
         end
-        self:endl()
     end
 end
 
