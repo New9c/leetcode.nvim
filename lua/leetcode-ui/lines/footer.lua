@@ -12,7 +12,7 @@ function Footer:contents()
 
     if config.auth.is_signed_in then
         self:append(stats)
-        self:endgrp()
+        --self:endgrp()
 
         self:append(t("Signed in as") .. ": ", "leetcode_alt")
         if config.auth.is_premium then
