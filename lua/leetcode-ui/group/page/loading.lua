@@ -7,8 +7,6 @@ local header = require("leetcode-ui.lines.menu-header")
 
 local page = Page()
 
-page:insert(header)
-
 page:insert(Title({}, "Loading..."))
 
 local exit = ExitButton()

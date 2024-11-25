@@ -214,8 +214,8 @@ function cmd.set_menu_page(page)
 end
 
 function cmd.start_user_session() --
-    config.stats.update()
     cmd.set_menu_page("menu")
+    config.stats.update()
 end
 
 function cmd.question_tabs()
