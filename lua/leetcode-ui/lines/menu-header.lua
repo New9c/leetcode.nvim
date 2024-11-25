@@ -21,12 +21,12 @@ function MenuHeader:contents()
     if config.auth.is_signed_in then
         local stats = config.stats
         local daily = stats.daily
-        log.info("daily.today_completed value: " .. tostring(daily.today_completed))
         local hl = daily.today_completed and "leetcode_medium" or "leetcode_menu"
+        local sh_hl = daily.today_completed and "Keyword" or "leetcode_alt"
         for _, line in ipairs(ascii) do
             for thing in line:gmatch(".") do
                 if thing == "/" or thing == "_" or thing == "\\" or thing == "|" then
-                    self:append(thing)
+                    self:append(thing, sh_hl)
                 else
                     self:append(thing, hl)
                 end
