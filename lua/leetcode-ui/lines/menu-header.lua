@@ -16,12 +16,8 @@ local ascii = {
     [[|________/\_______/\_______/  \___/  \______/ \______/ \_______/\_______/]],
 }
 
-function MenuHeader:init()
+function MenuHeader:contents()
     self:clear()
-    MenuHeader.super.init(self, {}, {
-        hl = "Keyword",
-    })
-
     if config.auth.is_signed_in then
         local stats = config.stats
         local daily = stats.daily
@@ -38,6 +34,12 @@ function MenuHeader:init()
             self:endl()
         end
     end
+    return MenuHeader.super.contents(self)
+end
+function MenuHeader:init()
+    MenuHeader.super.init(self, {}, {
+        hl = "Keyword",
+    })
 end
 
 ---@type fun(): lc.ui.menu.Header
