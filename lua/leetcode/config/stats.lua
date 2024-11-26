@@ -68,6 +68,7 @@ end
 
 function Stats.update()
     Stats.update_streak()
+    Stats.update_ranking()
     Stats.update_sessions()
 
     _Lc_state.menu:draw()
