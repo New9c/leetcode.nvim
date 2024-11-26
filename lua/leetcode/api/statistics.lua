@@ -74,6 +74,7 @@ function statistics.solved(cb)
             local questions_count = data["allQuestionsCount"]
             local submit_stats = data["matchedUser"]["submit_stats"]
             local ranking = data["matchedUser"]["profile"]["ranking"]
+            log.info(ranking)
 
             cb({
                 questions_count = questions_count,

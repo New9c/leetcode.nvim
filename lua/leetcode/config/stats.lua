@@ -29,7 +29,7 @@ function Stats.update_ranking()
         if err then
             return log.err(err)
         end
-
+        log.info("Statistics Solved Response:", res)
         Stats.ranking = res.ranking
 
         _Lc_state.menu:draw()
