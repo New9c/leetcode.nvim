@@ -43,7 +43,7 @@ if not config.is_cn then
 end
 
 local languages = Button("Languages", {
-    icon = "",
+    icon = "",
     sc = "l",
     on_press = cmd.ui_languages,
 })
