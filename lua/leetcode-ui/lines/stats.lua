@@ -17,11 +17,12 @@ function Stats:contents()
     self:append("󰈸 ", hl)
     self:append(daily.streak and tostring(daily.streak) or "-")
 
-    self:append((" %s "):format(config.icons.bar))
+    self:append((" %s  "):format(config.icons.bar))
+    self:append("#", "leetcode_menu")
     self:append(ranking and tostring(ranking) or "-")
-    self:append((" %s "):format(config.icons.bar))
+    self:append(("  %s "):format(config.icons.bar))
 
-    local icon = ("  %s "):format(config.icons.square)
+    local icon = (" %s "):format(config.icons.square)
     local function create_progress(key)
         self:append(icon, "leetcode_" .. key)
         local count = progress[key] and tostring(progress[key].count) or "-"
