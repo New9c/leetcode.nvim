@@ -11,12 +11,14 @@ function Stats:contents()
     self:clear()
 
     local stats = config.stats
-    local daily, progress = stats.daily, stats.progress
+    local daily, ranking, progress = stats.daily, stats.ranking, stats.progress
 
     local hl = daily.today_completed and "leetcode_hard" or "leetcode_alt"
     self:append("󰈸 ", hl)
     self:append(daily.streak and tostring(daily.streak) or "-")
 
+    self:append((" %s "):format(config.icons.bar))
+    self:append(ranking and tostring(ranking) or "-")
     self:append((" %s "):format(config.icons.bar))
 
     local icon = ("  %s "):format(config.icons.square)

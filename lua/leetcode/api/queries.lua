@@ -81,6 +81,9 @@ queries.solved = [[
                 count
             }
             matchedUser(username: $username) {
+                profile {
+                    ranking
+                }
                 submit_stats: submitStatsGlobal {
                     acSubmissionNum {
                         difficulty
