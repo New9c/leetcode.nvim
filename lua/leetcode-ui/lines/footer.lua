@@ -14,7 +14,7 @@ function Footer:contents()
         self:append(stats)
         self:endgrp()
 
-        self:append(t("Welcome back") .. ", ", "leetcode_alt")
+        self:append(t("Welcome back") .. ", ", "leetcode_menu")
         if config.auth.is_premium then
             self:append(config.icons.star .. " ", "leetcode_medium")
         end

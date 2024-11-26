@@ -19,13 +19,6 @@ function Stats:contents()
 
     self:append((" %s "):format(config.icons.bar))
 
-    self:append(t("session") .. ": ", "leetcode_alt")
-    local session = cmd.get_active_session()
-    local session_name = session
-            and (session.name == "" and config.sessions.default or session.name)
-        or "-"
-    self:append(session_name)
-
     local icon = ("  %s "):format(config.icons.square)
     local function create_progress(key)
         self:append(icon, "leetcode_" .. key)
