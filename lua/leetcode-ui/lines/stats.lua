@@ -32,17 +32,15 @@ function Stats:contents()
     create_progress("easy")
     create_progress("medium")
     create_progress("hard")
-    local function create_total()
-        local easy_count = progress["easy"] and tostring(progress["easy"].count) or "-"
-        local medium_count = progress["medium"] and tostring(progress["medium"].count) or "-"
-        local hard_count = progress["hard"] and tostring(progress["hard"].count) or "-"
-        if easy_count == "-" or medium_count == "-" or hard_count == "-" then
-            self:append("-")
-        else
-            local total = tostring(easy_count + medium_count + hard_count)
-            self:append(" -> ")
-            self:append(total)
-        end
+    self:append(" -> ")
+    local easy_count = progress["easy"] and tostring(progress["easy"].count) or "-"
+    local medium_count = progress["medium"] and tostring(progress["medium"].count) or "-"
+    local hard_count = progress["hard"] and tostring(progress["hard"].count) or "-"
+    if easy_count == "-" or medium_count == "-" or hard_count == "-" then
+        self:append("-")
+    else
+        local total = tostring(easy_count + medium_count + hard_count)
+        self:append(total)
     end
 
     return Stats.super.contents(self)
