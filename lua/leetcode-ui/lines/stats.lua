@@ -32,6 +32,10 @@ function Stats:contents()
     create_progress("easy")
     create_progress("medium")
     create_progress("hard")
+    local total =
+        tostring(progress["easy"].count + progress["medium"].count + progress["hard"].count)
+    self:append(" -> ")
+    self:append(total)
 
     return Stats.super.contents(self)
 end
