@@ -18,7 +18,7 @@ function Stats:contents()
     self:append(daily.streak and tostring(daily.streak) or "-")
 
     self:append((" %s  "):format(config.icons.bar))
-    self:append("Global Ranking: #", "leetcode_menu")
+    self:append("Ranking: #", "leetcode_menu")
     self:append(ranking and tostring(ranking) or "-")
     self:append(" ")
 
