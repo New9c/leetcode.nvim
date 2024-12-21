@@ -12,17 +12,17 @@ local function testcases_passed(item)
 end
 
 local ToFunnyTitle = {
-    ["#Accepted"] = "ANOTHER ONE BITES THE DUST 🗡️",
-    ["#Wrong Answer"] = "WRONG 🙅",
-    ["#Time Limit Exceeded"] = "TOO SLOW 🐌",
-    ["#Runtime Error"] = "Code Can't Run 💥",
-    ["#Compile Error"] = "Code Can't Compile 💥",
+    [" Accepted"] = " ANOTHER ONE BITES THE DUST 🗡️",
+    [" Wrong Answer"] = " WRONG 🙅",
+    [" Time Limit Exceeded"] = " TOO SLOW 🐌",
+    [" Runtime Error"] = " Code Can't Run 💥",
+    [" Compile Error"] = " Code Can't Compile 💥",
 }
 ---@param item lc.interpreter_response
 function Header:init(item) --
     Header.super.init(self)
     print("item._.title:", item._.title or "nil")
-    local funnyTitle = ToFunnyTitle[item._.title] or item._.title
+    local funnyTitle = ToFunnyTitle[item._.title] or "UNKNOWN "
     self:append(funnyTitle, item._.hl)
     if item._.submission then
         if not item._.success then
