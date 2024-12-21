@@ -12,7 +12,7 @@ local function testcases_passed(item)
 end
 
 local ToFunnyTitle = {
-    [" Accepted"] = " ANOTHER ONE BITES THE DUST 🗡️",
+    [" Accepted"] = "",
     [" Wrong Answer"] = " WRONG 🙅",
     [" Time Limit Exceeded"] = " TOO SLOW 🐌",
     [" Runtime Error"] = " Code Can't Run 💥",
@@ -24,13 +24,20 @@ function Header:init(item) --
     local funnyTitle = ToFunnyTitle[item._.title] or item._.title
     self:append(funnyTitle, item._.hl)
     if item._.submission then
-        if not item._.success then
+        if item._.success then
+            self:append(" ANOTHER ONE BITES THE DUST 🗡️")
+        else
             self:append(" | ")
             self:append(testcases_passed(item), "leetcode_alt")
         end
-    elseif item.status_runtime then
-        self:append(" | ")
-        self:append(("%s: %s"):format(t("Runtime"), item.status_runtime), "leetcode_alt")
+    else
+        if item._.success then
+            self:append(" OKIE 👌")
+        end
+        if item.status_runtime then
+            self:append(" | ")
+            self:append(("%s: %s"):format(t("Runtime"), item.status_runtime), "leetcode_alt")
+        end
     end
 end
 
