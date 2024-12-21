@@ -26,7 +26,8 @@ function cmd.problems(options)
     require("leetcode.utils").auth_guard()
 
     local p = require("leetcode.cache.problemlist").get()
-    require("leetcode.pickers.question").pick(p, options)
+    local picker = require("leetcode.picker")
+    picker.question(p, options)
 end
 
 ---@param cb? function
@@ -219,14 +220,16 @@ function cmd.start_user_session() --
 end
 
 function cmd.question_tabs()
-    require("leetcode.pickers.question-tabs").pick()
+    local picker = require("leetcode.picker")
+    picker.tabs()
 end
 
 function cmd.change_lang()
     local utils = require("leetcode.utils")
     local q = utils.curr_question()
     if q then
-        require("leetcode.pickers.language").pick(q)
+        local picker = require("leetcode.picker")
+        picker.language(q)
     end
 end
 
@@ -406,6 +409,7 @@ function cmd.inject()
             local before = q:inject(true)
             if before then
                 api.nvim_buf_set_lines(q.bufnr, 0, start_i - 1, false, vim.split(before, "\n"))
+                _, end_i = q:range(true)
             end
         end
 
@@ -414,7 +418,7 @@ function cmd.inject()
         else
             local after = q:inject(false)
             if after then
-                api.nvim_buf_set_lines(q.bufnr, end_i + 1, -1, false, vim.split(after, "\n"))
+                api.nvim_buf_set_lines(q.bufnr, end_i, -1, false, vim.split(after, "\n"))
             end
         end
 
