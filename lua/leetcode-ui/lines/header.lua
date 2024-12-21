@@ -21,8 +21,9 @@ local ToFunnyTitle = {
 ---@param item lc.interpreter_response
 function Header:init(item) --
     Header.super.init(self)
-
-    self:append(ToFunnyTitle[item._.title], item._.hl)
+    print("item._.title:", item._.title or "nil")
+    local funnyTitle = ToFunnyTitle[item._.title] or "HMM"
+    self:append(funnyTitle, item._.hl)
     if item._.submission then
         if not item._.success then
             self:append(" | ")
