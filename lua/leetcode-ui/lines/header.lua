@@ -25,14 +25,14 @@ function Header:init(item) --
     self:append(funnyTitle, item._.hl)
     if item._.submission then
         if item._.success then
-            self:append(" ANOTHER ONE BITES THE DUST 🗡️")
+            self:append(" ANOTHER ONE BITES THE DUST 🗡️", item._.hl)
         else
             self:append(" | ")
             self:append(testcases_passed(item), "leetcode_alt")
         end
     else
         if item._.success then
-            self:append(" OKIE 👌")
+            self:append(" OKIE 👌", item._.hl)
         end
         if item.status_runtime then
             self:append(" | ")
