@@ -5,6 +5,7 @@
 🔥 My personal version of [leetcode.nvim] 🔥
 
 <!-- 🇺🇸 English, 🇨🇳 <a href="README.zh.md">简体中文</a> -->
+</div>
 
 ## ✨ Personal Features
 

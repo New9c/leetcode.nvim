@@ -11,15 +11,20 @@ local function testcases_passed(item)
     return ("%d/%d %s"):format(correct, total, t("testcases passed"))
 end
 
+local ToFunnyTitle = {
+    ["Accepted"] = "ANOTHER ONE BITES THE DUST 🗡️",
+    ["Wrong Answer"] = "WRONG 🙅",
+    ["Time Limit Exceeded"] = "TOO SLOW 🐌",
+    ["Runtime Error"] = "Code Can't Run 💥",
+    ["Compile Error"] = "Code Can't Compile 💥",
+}
 ---@param item lc.interpreter_response
 function Header:init(item) --
     Header.super.init(self)
 
-    self:append(item._.title, item._.hl)
+    self:append(ToFunnyTitle[item._.title], item._.hl)
     if item._.submission then
-        if item._.success then
-            self:append("!!! WOOOOO🎉🎉🎉", "leetcode_ok")
-        else
+        if not item._.success then
             self:append(" | ")
             self:append(testcases_passed(item), "leetcode_alt")
         end
