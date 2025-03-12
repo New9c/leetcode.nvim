@@ -27,8 +27,8 @@ function ResultPopup:handle(item)
         local status = item.status_code == 10 and "ac" or "notac"
         problemlist.change_status(self.console.question.q.title_slug, status)
         if status == "ac" then
-            config.stats.update_streak()
             solved:update()
+            config.stats.update()
         end
     end
 
