@@ -11,9 +11,18 @@ local header = require("leetcode-ui.lines.menu-header")
 
 local page = Page()
 
+local config = require("leetcode.config")
+---@type Path
+local file = config.storage.cache:joinpath(("cookie%s"):format(config.is_cn and "_cn" or ""))
+
 page:insert(header)
 
 page:insert(Title({ "Menu" }, "Problems"))
+
+local contents = file:read()
+if not contents or type(contents) ~= "string" then
+    contents = "NONE"
+end
 
 local list = Button("List", {
     icon = "",
@@ -38,7 +47,7 @@ local status = Button("Settings", {
     sc = "s",
     on_press = cmd.problems,
     expandable = true,
-    expand_icon = "All",
+    expand_icon = contents,
 })
 
 local back = BackButton("menu")
