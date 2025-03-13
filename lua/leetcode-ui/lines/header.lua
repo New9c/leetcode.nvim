@@ -14,9 +14,9 @@ end
 local ToFunnyTitle = {
     [" Accepted"] = "",
     [" Wrong Answer"] = " WRONG 🙅",
-    [" Time Limit Exceeded"] = " TOO SLOW 🐌",
-    [" Runtime Error"] = " Code Can't Run 💥",
-    [" Compile Error"] = " Code Can't Compile 💥",
+    [" Time Limit Exceeded"] = " SNAIL 🐌",
+    [" Runtime Error"] = " CAN'T RUN 💥",
+    [" Compile Error"] = " CAN'T COMPILE 💥",
 }
 ---@param item lc.interpreter_response
 function Header:init(item) --
