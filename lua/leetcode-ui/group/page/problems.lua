@@ -33,8 +33,8 @@ local daily = Button("Daily", {
     on_press = cmd.qot,
 })
 
-local status = Button("Status", {
-    icon = "",
+local status = Button("Settings", {
+    icon = "",
     sc = "s",
     on_press = cmd.problems,
     expandable = true,
