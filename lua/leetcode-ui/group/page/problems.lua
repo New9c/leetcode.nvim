@@ -18,7 +18,9 @@ page:insert(Title({ "Menu" }, "Problems"))
 local list = Button("List", {
     icon = "",
     sc = "p",
-    on_press = cmd.problems,
+    on_press = function()
+        cmd.problems({ status = { "todo" } }) -- Example options
+    end,
 })
 
 local random = Button("Random", {
