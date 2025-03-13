@@ -95,6 +95,12 @@ function cmd.delete_cookie()
     cookie.delete()
 end
 
+function cmd.next_setting()
+    local settings = require("leetcode.cache.settings")
+    settings.nxt()
+    cmd.set_menu_page("problems")
+end
+
 cmd.q_close_all = function()
     local utils = require("leetcode.utils")
     local qs = utils.question_tabs()

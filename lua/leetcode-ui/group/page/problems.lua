@@ -13,7 +13,7 @@ local page = Page()
 
 local config = require("leetcode.config")
 ---@type Path
-local file = config.storage.cache:joinpath(("cookie%s"):format(config.is_cn and "_cn" or ""))
+local file = config.storage.cache:joinpath(("settings%s"):format(config.is_cn and "_cn" or ""))
 
 page:insert(header)
 
@@ -21,7 +21,7 @@ page:insert(Title({ "Menu" }, "Problems"))
 
 local contents = file:read()
 if not contents or type(contents) ~= "string" then
-    contents = "NONE"
+    contents = "ERROR"
 end
 
 local list = Button("List", {
@@ -45,7 +45,7 @@ local daily = Button("Daily", {
 local status = Button("Settings", {
     icon = "",
     sc = "s",
-    on_press = cmd.problems,
+    on_press = cmd.next_setting(),
     expandable = true,
     expand_icon = contents,
 })
