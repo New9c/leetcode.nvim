@@ -5,6 +5,7 @@ local Button = require("leetcode-ui.lines.button.menu")
 local BackButton = require("leetcode-ui.lines.button.menu.back")
 local Buttons = require("leetcode-ui.group.buttons.menu")
 local Page = require("leetcode-ui.group.page")
+local log = require("leetcode.logger")
 
 local footer = require("leetcode-ui.lines.footer")
 local header = require("leetcode-ui.lines.menu-header")
@@ -20,9 +21,11 @@ page:insert(header)
 page:insert(Title({ "Menu" }, "Problems"))
 
 local contents = file:read()
+log.info(contents)
 if not contents or type(contents) ~= "string" then
     contents = "?"
 end
+log.info(contents)
 
 local list = Button("List", {
     icon = "",
