@@ -23,9 +23,8 @@ page:insert(Title({ "Menu" }, "Problems"))
 local contents = file:read()
 log.info(contents)
 if contents == "" or type(contents) ~= "string" then
-    contents = "?"
+    contents = "All"
 end
-log.info(contents)
 
 local list = Button("List", {
     icon = "",
@@ -48,7 +47,7 @@ local daily = Button("Daily", {
 local status = Button("Settings", {
     icon = "",
     sc = "s",
-    on_press = cmd.next_setting(),
+    on_press = cmd.next_setting,
     expandable = true,
     expand_icon = contents,
 })

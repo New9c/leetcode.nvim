@@ -18,14 +18,16 @@ end
 
 function Settings.nxt()
     if contents == "All" then
-        Settings.set("Easy")
+        contents = "Easy"
     elseif contents == "Easy" then
-        Settings.set("Medium")
+        contents = "Medium"
     elseif contents == "Medium" then
-        Settings.set("Hard")
+        contents = "Hard"
     elseif contents == "Hard" then
-        Settings.set("All")
+        contents = "All"
     end
+    Settings.set(contents)
+    log.info(contents)
 end
 
 return Settings

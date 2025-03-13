@@ -98,7 +98,6 @@ end
 function cmd.next_setting()
     local settings = require("leetcode.cache.settings")
     settings.nxt()
-    log.info("Done nxt")
 end
 
 cmd.q_close_all = function()
