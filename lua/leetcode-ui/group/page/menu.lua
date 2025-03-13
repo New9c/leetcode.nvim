@@ -35,7 +35,7 @@ local statistics = Button("Statistics", {
 
 local cookie = Button("Cookie", {
     icon = "󰆘",
-    sc = "i",
+    sc = "c",
     on_press = function()
         cmd.set_menu_page("cookie")
     end,
@@ -44,7 +44,7 @@ local cookie = Button("Cookie", {
 
 local cache = Button("Cache", {
     icon = "",
-    sc = "c",
+    sc = "a",
     on_press = function()
         cmd.set_menu_page("cache")
     end,
