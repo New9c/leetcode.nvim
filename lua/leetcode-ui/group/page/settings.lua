@@ -13,35 +13,18 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({ "Menu" }, "Problems"))
+page:insert(Title({ "Menu", "Problems" }, "Settings"))
 
-local list = Button("List", {
+local status = Button("Status", {
     icon = "",
-    sc = "p",
-    on_press = function()
-        cmd.set_menu_page("settings")
-    end,
-    expandable = true,
-})
-
-local random = Button("Random", {
-    icon = "",
-    sc = "r",
-    on_press = cmd.random_question,
-})
-
-local daily = Button("Daily", {
-    icon = "󰃭",
-    sc = "d",
-    on_press = cmd.qot,
+    sc = "s",
+    on_press = cmd.problems,
 })
 
 local back = BackButton("menu")
 
 page:insert(Buttons({
-    list,
-    random,
-    daily,
+    status,
     back,
 }))
 

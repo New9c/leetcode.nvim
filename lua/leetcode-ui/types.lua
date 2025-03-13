@@ -32,6 +32,7 @@
 ---| "cache"
 ---| "signin"
 ---| "loading"
+---| "settings"
 
 --------------------------------------------
 --- Leet Component
