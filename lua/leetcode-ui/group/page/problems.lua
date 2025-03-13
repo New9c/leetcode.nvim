@@ -37,6 +37,8 @@ local status = Button("Status", {
     icon = "",
     sc = "s",
     on_press = cmd.problems,
+    expandable = true,
+    expand_icon = "All",
 })
 
 local back = BackButton("menu")
