@@ -19,10 +19,7 @@ page:insert(header)
 
 page:insert(Title({ "Menu" }, "Problems"))
 
-local contents = file:read()
-if not contents or type(contents) ~= "string" then
-    contents = "ERROR"
-end
+local contents = file and file:read() or ""
 
 local list = Button("List", {
     icon = "",
