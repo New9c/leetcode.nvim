@@ -12,7 +12,7 @@ function Settings.set(str)
     file:write(str, "w")
 end
 
-if not contents then
+if contents == "" then
     Settings.set("All")
 end
 

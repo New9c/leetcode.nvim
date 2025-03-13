@@ -22,7 +22,7 @@ page:insert(Title({ "Menu" }, "Problems"))
 
 local contents = file:read()
 log.info(contents)
-if not contents or type(contents) ~= "string" then
+if contents == "" or type(contents) ~= "string" then
     contents = "?"
 end
 log.info(contents)
