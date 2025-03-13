@@ -21,7 +21,7 @@ local status = Button("Status", {
     on_press = cmd.problems,
 })
 
-local back = BackButton("menu")
+local back = BackButton("problems")
 
 page:insert(Buttons({
     status,
