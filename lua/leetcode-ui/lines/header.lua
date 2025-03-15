@@ -15,6 +15,7 @@ local ToFunnyTitle = {
     [" Accepted"] = "",
     [" Wrong Answer"] = " WRONG 🙅",
     [" Time Limit Exceeded"] = " SNAIL 🐌",
+    [" Memory Limit Exceeded"] = " MEMORY FULL 💾",
     [" Runtime Error"] = " CAN'T RUN 💥",
     [" Compile Error"] = " CAN'T COMPILE 💥",
 }
