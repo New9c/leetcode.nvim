@@ -8,7 +8,7 @@ local MenuBackButton = MenuButton:extend("LeetMenuBackButton")
 function MenuBackButton:init(page)
     MenuBackButton.super.init(self, "Back", {
         icon = "",
-        sc = "q",
+        sc = "e",
         on_press = function()
             cmd.set_menu_page(page)
         end,
