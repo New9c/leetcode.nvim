@@ -82,9 +82,15 @@ function cmd.cookie_prompt(cb)
 end
 
 function cmd.auto_signin()
-    cmd.menu()
-    log.warn("Hi")
-    cmd.start_user_session()
+    local cookie = require("leetcode.cache.cookie")
+    local err = cookie.set(cookie.read())
+
+    if not err then
+        log.info("Sign-in successful")
+        cmd.start_user_session()
+    else
+        log.error("Sign-in failed: " .. err)
+    end
 end
 
 function cmd.sign_out()
