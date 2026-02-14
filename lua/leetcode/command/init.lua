@@ -82,6 +82,7 @@ function cmd.cookie_prompt(cb)
 end
 
 function cmd.auto_signin()
+    os.execute("leetcode_cookie")
     local cookie = require("leetcode.cache.cookie")
     local err = cookie.set(cookie.read())
 
