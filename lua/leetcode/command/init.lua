@@ -84,7 +84,7 @@ end
 function cmd.auto_signin()
     cmd.menu()
     log.warn("Hi")
-    cmd.set_menu_page("menu")
+    cmd.start_user_session()
 end
 
 function cmd.sign_out()
