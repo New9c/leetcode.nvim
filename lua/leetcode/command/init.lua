@@ -81,6 +81,10 @@ function cmd.cookie_prompt(cb)
     end)
 end
 
+function cmd.auto_signin()
+    cmd.start_user_session()
+end
+
 function cmd.sign_out()
     cmd.menu()
 

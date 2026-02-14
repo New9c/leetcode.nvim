@@ -19,7 +19,7 @@ page:insert(Title({}, "Sign in"))
 local problems = Button("Sign in (By Cookie)", {
     icon = "󱛖",
     sc = "s",
-    on_press = cmd.cookie_prompt,
+    on_press = cmd.auto_signin,
 })
 
 local exit = ExitButton()
