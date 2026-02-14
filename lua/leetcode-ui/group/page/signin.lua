@@ -14,18 +14,25 @@ local page = Page()
 
 page:insert(header)
 
-page:insert(Title({}, "Sign in"))
+page:insert(Title({}, "Sign in leetcode.com First, Then Press Auto C:"))
 
-local problems = Button("Sign in (By Cookie)", {
+local auto_sign_in = Button("Auto Sign in", {
+    icon = "󱛖",
+    sc = "a",
+    on_press = cmd.auto_signin,
+})
+
+local normal_sign_in = Button("Sign in (Manual Cookie Insert)", {
     icon = "󱛖",
     sc = "s",
-    on_press = cmd.auto_signin,
+    on_press = cmd.cookie_prompt,
 })
 
 local exit = ExitButton()
 
 page:insert(Buttons({
-    problems,
+    auto_sign_in,
+    normal_sign_in,
     exit,
 }))
 
