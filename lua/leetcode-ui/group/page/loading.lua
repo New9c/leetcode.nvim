@@ -5,7 +5,7 @@ local Title = require("leetcode-ui.lines.title")
 
 local page = Page()
 
-page:insert(Title({}, "Loading..."))
+page:insert(Title({}, "Beep Beep Boop Boop..."))
 
 local exit = ExitButton()
 

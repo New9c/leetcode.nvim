@@ -82,7 +82,9 @@ function cmd.cookie_prompt(cb)
 end
 
 function cmd.auto_signin()
-    cmd.start_user_session()
+    cmd.menu()
+    log.warn("Hi")
+    cmd.set_menu_page("menu")
 end
 
 function cmd.sign_out()
