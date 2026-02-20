@@ -36,46 +36,49 @@ end
 
 ---@param filters? table
 function question.random(filters)
-    local variables = {
-        categorySlug = "algorithms",
-        filters = filters or vim.empty_dict(),
-    }
+    for roll = 1, 50, 1 do
+        local variables = {
+            categorySlug = "algorithms",
+            filters = filters or vim.empty_dict(),
+        }
 
-    local query = queries.random_question
+        local query = queries.random_question
 
-    local config = require("leetcode.config")
-    local res, err = utils.query(query, variables)
-    if err then
-        return nil, err
-    end
-
-    local q = res.data.randomQuestion
-
-    if q == vim.NIL then
-        local msg = "Random question fetch responded with `null`"
-
-        if filters then
-            msg = msg .. ".\n\nMaybe invalid filters?\n" .. vim.inspect(filters)
+        local config = require("leetcode.config")
+        local res, err = utils.query(query, variables)
+        if err then
+            return nil, err
         end
 
-        return nil, { msg = msg, lvl = vim.log.levels.ERROR }
-    end
+        local q = res.data.randomQuestion
 
-    if config.is_cn then
-        q = {
-            title_slug = q,
-            paid_only = problemlist.get_by_title_slug(q).paid_only,
-        }
-    end
+        if q == vim.NIL then
+            local msg = "Random question fetch responded with `null`"
 
-    if not config.auth.is_premium and q.paid_only then
-        err = err or {}
-        err.msg = "Drawn question is for premium users only. Please try again"
-        err.lvl = vim.log.levels.WARN
-        return nil, err
-    end
+            if filters then
+                msg = msg .. ".\n\nMaybe invalid filters?\n" .. vim.inspect(filters)
+            end
 
-    return q
+            return nil, { msg = msg, lvl = vim.log.levels.ERROR }
+        end
+
+        if config.is_cn then
+            q = {
+                title_slug = q,
+                paid_only = problemlist.get_by_title_slug(q).paid_only,
+            }
+        end
+
+        if config.auth.is_premium or not q.paid_only then
+            print("Got free boi!")
+            return q
+        end
+        print("Found premium boi #" .. roll .. "...")
+    end
+    local err = {}
+    err.msg = "That was 50 damn times man LOL"
+    err.lvl = vim.log.levels.WARN
+    return nil, err
 end
 
 ---@param qid integer
